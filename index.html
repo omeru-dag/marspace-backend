@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARSPACE - Otonom Kriz Yönetim Paneli</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dark-theme">
+    <div class="dashboard-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="logo-placeholder">TUA</div>
+            <div class="title-container">
+                <h1>MARSPACE – ULUSAL KRİTİK ALTYAPI KORUMA KOMUTA MERKEZİ</h1>
+                <h2 class="subtitle">Otonom Kriz Yönetim Paneli <span class="badge air-gapped">AIR-GAPPED SYSTEM</span>
+                    <span class="badge llm-badge connected" id="llm-status">LLM: BAĞLI (GEMMA-4B ACTIVE)</span></h2>
+            </div>
+            <div class="logo-placeholder">MARSPACE</div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-grid">
+            <!-- LEFT COLUMN: SENSOR & TIMELINE -->
+            <section class="panel left-panel">
+                <h3 class="panel-title">SENSÖRLER VE ZAMAN ÇİZELGESİ KONTROLÜ</h3>
+
+                <div class="phase-controller">
+                    <h4 class="widget-header">SENARYO FAZLARI (JÜRİ KONTROLÜ)</h4>
+                    <button id="btn-phase-1" class="btn btn-phase">FAZ 1: T - 3 Gün (Gözlem & Hazırlık)</button>
+                    <button id="btn-phase-2" class="btn btn-phase">FAZ 2: T - 30 Dakika (Tahliye & İzolasyon)</button>
+                    <button id="btn-phase-3" class="btn btn-phase critical-phase">FAZ 3: T + 0 (Çarpışma & Müdahale)</button>
+                    <button id="btn-phase-4" class="btn btn-phase recovery-phase">FAZ 4: T + 24 Saat (İyileştirme & ROV)</button>
+                </div>
+
+                <div class="telemetry-widgets">
+                    <h4 class="widget-header">L1 DSCOVR TELEMETRY</h4>
+                    <div class="widget status-widget main-status">
+                        <span class="widget-label">Sistem Durumu</span>
+                        <span id="status-main" class="widget-value ok">STANDBY</span>
+                    </div>
+                    <div class="widget">
+                        <span class="widget-label">Kp İndeksi</span>
+                        <span id="val-kp" class="widget-value">--</span>
+                    </div>
+                    <div class="widget">
+                        <span class="widget-label">Güneş Rüzgarı</span>
+                        <span id="val-wind" class="widget-value">-- km/s</span>
+                    </div>
+                    <div class="widget">
+                        <span class="widget-label">Bz Manyetik Alan</span>
+                        <span id="val-bz" class="widget-value">-- nT</span>
+                    </div>
+                    <div class="widget">
+                        <span class="widget-label">GIC Akımı (İndüklenen)</span>
+                        <span id="val-gic" class="widget-value">-- A/km</span>
+                    </div>
+                    <div class="widget status-widget">
+                        <span class="widget-label">Metro Ağları</span>
+                        <span id="status-metro" class="widget-value ok">AKTİF</span>
+                    </div>
+                    <div class="widget status-widget">
+                        <span class="widget-label">HF/GPS Ağları</span>
+                        <span id="status-comms" class="widget-value ok">AKTİF</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MIDDLE COLUMN: SDO & MAP -->
+            <section class="panel middle-panel" style="padding-top: 10px; padding-bottom: 8px;">
+                <!-- SOLAR FEED (TOP) -->
+                <div class="solar-feed-container"
+                    style="flex: 0.55; min-height: 180px; position: relative; border: 1px solid var(--panel-border); border-radius: 4px; overflow: hidden; margin-bottom: 15px; background-color: #000; box-shadow: 0 0 15px rgba(0,0,0,0.8);">
+                    <div id="solar-warning"
+                        style="position: absolute; top: 10px; left: 10px; z-index: 10; font-family: var(--font-mono); color: var(--accent-orange); font-size: 0.75rem; background: rgba(0,0,0,0.8); padding: 4px 6px; border: 1px solid var(--accent-orange); border-radius: 3px;">
+                        🔴 CANLI OTONOM İZLEME: SunspotSDO (10 FPS)
+                    </div>
+                    <div
+                        style="width: 100%; height: 100%; overflow: hidden; display: flex; justify-content: center; align-items: center; pointer-events: none; background: #000;">
+                        <img id="solar-video" src="http://127.0.0.1:5006/stream"
+                            style="width: 100%; height: 100%; object-fit: contain; border: none; filter: contrast(1.1) brightness(1.2);"
+                            alt="SDO Live Feed">
+                    </div>
+                </div>
+
+                <!-- EARTH INFRASTRUCTURE MAP (BOTTOM) -->
+                <h3 class="panel-title" style="margin-bottom: 8px; border-bottom:none; font-size: 0.85rem;">TÜRKİYE
+                    İNTERAKTİF ALTYAPI HARİTASI</h3>
+                <div id="infrastructure-map" class="map-container" style="border-radius: 4px;"></div>
+                <div class="map-legend">
+                    <div class="legend-item"><span class="color-box color-green"></span> Enerji/Metro</div>
+                    <div class="legend-item"><span class="color-box color-gray"></span> İzole Hat</div>
+                    <div class="legend-item"><span class="color-box color-red"></span> Kritik Düğüm</div>
+                    <div class="legend-item"><span class="color-box color-blue"></span> AREDN Karasal Ağ</div>
+                </div>
+            </section>
+
+            <!-- RIGHT COLUMN: TERMINAL & CHAT -->
+            <section class="panel right-panel">
+                <div class="split-panel">
+                    <div class="terminal-half">
+                        <h3 class="panel-title">SİSTEM LOG</h3>
+                        <div class="terminal-container" id="ai-terminal">
+                            <!-- Logs will be injected here -->
+                            <div class="terminal-line"><span class="prompt">*&gt;</span> SİSTEM BAŞLATILDI...
+                                BAĞLANTILAR KONTROL EDİLİYOR.</div>
+                            <div class="terminal-line"><span class="prompt">*&gt;</span> OTONOM YP AĞI DEVREDE. SENARYO
+                                BEKLENİYOR...</div>
+                        </div>
+                    </div>
+
+                    <div class="chat-half">
+                        <div class="scada-header">
+                            <span class="scada-title">SCADA OTONOM KARAR MOTORU</span>
+                            <div class="scada-status">
+                                <span class="scada-badge">ENGINE_READY</span>
+                                <span style="opacity: 0.5;">BUFF: CLEAR</span>
+                            </div>
+                        </div>
+                        <div class="chat-container" id="chat-history">
+                            <div class="chat-message ai-message">Durum değerlendirme ve altyapı koruma protokolleri aktif. Komut bekleniyor.</div>
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" id="chat-input" placeholder="KOMUT GİRİŞİ (A-C-M)..."
+                                autocomplete="off">
+                            <button id="btn-chat-send" class="btn"
+                                style="width: auto;">EXECUTE</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js?v=12"></script>
+</body>
+
+</html>

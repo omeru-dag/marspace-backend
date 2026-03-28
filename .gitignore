@@ -1,0 +1,13 @@
+*.mp4
+*.pt
+*.log
+__pycache__/
+.env
+.antigravity/
+.gemini/
+brain/
+proxy_debug.log
+test_proxy_chat.py
+SunspotsYoloDataset/
+# If you want to include smaller models, uncomment below
+# !SunspotSDO_yolo.pt

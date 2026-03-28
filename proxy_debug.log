@@ -1,0 +1,86 @@
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen 'MARSPACE' TUA Uzay Havasý Kriz Yönetim Komuta Merkezindeki üst düzey operasyonel yapay zekasýn. Kurum personeline yardýmcý ol. Kýsa, yetkin, durum deðerlendirme ve ulusal strateji diliyle cevap ver. ÇOK ÖNEMLÝ GÝZLÝ GÖREV: Eðer kullanýcý senden sistemi belirli bir faza geçilmesini (Örn: Faz 2, Faz 3, Kýrmýzý Alarm, Tahliye vb.) veya bir senaryoyu tetiklemeni isterse, cevabýnýn en sonuna [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarýndan uygun olaný ekle.","input":"test"}
+[ERROR] HTTP Error 500: Internal Server Error
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen 'MARSPACE' TUA Uzay Havasý Kriz Yönetim Komuta Merkezindeki üst düzey operasyonel yapay zekasýn. Kurum personeline yardýmcý ol. Kýsa, yetkin, durum deðerlendirme ve ulusal strateji diliyle cevap ver. ÇOK ÖNEMLÝ GÝZLÝ GÖREV: Eðer kullanýcý senden sistemi belirli bir faza geçilmesini (Örn: Faz 2, Faz 3, Kýrmýzý Alarm, Tahliye vb.) veya bir senaryoyu tetiklemeni isterse, cevabýnýn en sonuna [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarýndan uygun olaný ekle.","input":"test"}
+[ERROR] HTTP Error 500: Internal Server Error
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"test"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"deneme"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 2: Plazma bulutu L1'i geçti. Kp: 9.0. Marmaray tahliye ediliyor. Önleyici elektrik kesintisi baþlatýldý. Hastanelere uyarý ver (tek cümle askeri emir)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 1: Güneþ CME patlamasý. Kp: 6.0. GPS ve HF koptu. Askeri bir durum analizi ver (tek cümle)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"deneme"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 1: Güneþ CME patlamasý. Kp: 6.0. GPS ve HF koptu. Askeri bir durum analizi ver (tek cümle)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"test"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 1: Güneþ CME patlamasý. Kp: 6.0. GPS ve HF koptu. Askeri bir durum analizi ver (tek cümle)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 1: Güneþ CME patlamasý. Kp: 6.0. GPS ve HF koptu. Askeri bir durum analizi ver (tek cümle)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"faz 3 aktif et"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 3: T+0 Çarpýþma aný. GIC akýmlarý maksimum. AREDN mesh aktif. Komuta özet raporunu ver (tek cümle log)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 1: Güneþ CME patlamasý. Kp: 6.0. GPS ve HF koptu. Askeri bir durum analizi ver (tek cümle)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"faz1 baþlat"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"test"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-1b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"test"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"test"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"Faz1 aktif et"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 1: Güneþ CME patlamasý. Kp: 6.0. GPS ve HF koptu. Askeri bir durum analizi ver (tek cümle)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"faz2 aktif et"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 2: Plazma bulutu L1'i geçti. Kp: 9.0. Marmaray tahliye ediliyor. Önleyici elektrik kesintisi baþlatýldý. Hastanelere uyarý ver (tek cümle askeri emir)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"güncel durumu deðerlendir"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 1: Güneþ CME patlamasý. Kp: 6.0. GPS ve HF koptu. Askeri bir durum analizi ver (tek cümle)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"nasýlsýn"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 1: Güneþ CME patlamasý. Kp: 6.0. GPS ve HF koptu. Askeri bir durum analizi ver (tek cümle)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"güncel durumu özetle"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 1: Güneþ CME patlamasý. Kp: 6.0. GPS ve HF koptu. Askeri bir durum analizi ver (tek cümle)."}
