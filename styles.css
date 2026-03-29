@@ -1,15 +1,16 @@
 :root {
     --bg-dark: #05070a;
-    --panel-bg: #121a2f;
-    --panel-border: #1e2d4a;
+    --panel-bg: rgba(10, 15, 25, 0.85);
+    --accent-blue: #00d2ff;
+    --accent-green: #00ff66;
+    --accent-orange: #ff9900;
+    --accent-red: #ff3333;
+    --text-main: #e0e6ed;
     --text-primary: #e0e6ed;
     --text-muted: #8a9bb2;
-    --accent-blue: #00d2ff;
-    --accent-red: #ff3333;
-    --accent-orange: #ff9900;
-    --accent-green: #00ff66;
-
-    --font-mono: 'Roboto Mono', monospace;
+    --panel-border: #1e2d4a;
+    --font-main: 'Inter', sans-serif;
+    --font-mono: 'Fira Code', 'Roboto Mono', monospace;
     --font-sans: 'Inter', sans-serif;
 }
 
@@ -195,14 +196,28 @@ h1 {
 .telemetry-widgets {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
+    overflow-y: auto;
+    flex: 1; /* Allow it to take up remaining space */
+    padding-right: 5px;
 }
 
-.widget-header {
+.telemetry-group {
+    border: 1px solid rgba(30, 45, 74, 0.6);
+    background: rgba(5, 7, 10, 0.4);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.telemetry-group .widget-header {
     font-family: var(--font-mono);
     color: var(--accent-blue);
-    font-size: 0.85rem;
-    margin-bottom: 5px;
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+    padding-bottom: 4px;
+    text-transform: uppercase;
 }
 
 .widget {

@@ -84,3 +84,27 @@ Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE operasyonel yap
 
 [POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
 Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 1: Güneþ CME patlamasý. Kp: 6.0. GPS ve HF koptu. Askeri bir durum analizi ver (tek cümle)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"merhaba nasýlsýn marspace"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 1: Güneþ CME patlamasý. Kp: 6.0. GPS ve HF koptu. Askeri bir durum analizi ver (tek cümle)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"faz1"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 1: Güneþ CME patlamasý. Kp: 6.0. GPS ve HF koptu. Askeri bir durum analizi ver (tek cümle)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"faz3"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 3: T+0 Çarpýþma aný. GIC akýmlarý maksimum. AREDN mesh aktif. Komuta özet raporunu ver (tek cümle log)."}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE operasyonel yapay zekasisin. Kisa, yetkin ve net cevap ver. Eger kullanici bir faza gecis isterse (Faz 1-4), cevabina [ACTION: PHASE1], [ACTION: PHASE2], [ACTION: PHASE3] veya [ACTION: PHASE4] kodlarindan birini ekle.","input":"sistem durumunu özetle"}
+
+[POST] Forwarding to http://127.0.0.1:1234/api/v1/chat
+Data: {"model":"google/gemma-3-4b","system_prompt":"Sen MARSPACE otonom yapay zekasisin. Kisa, net ve operasyonel raporla (maks 1 cumle).","input":"Faz 3: T+0 Çarpýþma aný. GIC akýmlarý maksimum. AREDN mesh aktif. Komuta özet raporunu ver (tek cümle log)."}

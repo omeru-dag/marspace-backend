@@ -7,7 +7,7 @@
     <title>MARSPACE - Otonom Kriz Yönetim Paneli</title>
     <!-- Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap"
         rel="stylesheet">
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -35,41 +35,142 @@
 
                 <div class="phase-controller">
                     <h4 class="widget-header">SENARYO FAZLARI (JÜRİ KONTROLÜ)</h4>
-                    <button id="btn-phase-1" class="btn btn-phase">FAZ 1: T - 3 Gün (Gözlem & Hazırlık)</button>
-                    <button id="btn-phase-2" class="btn btn-phase">FAZ 2: T - 30 Dakika (Tahliye & İzolasyon)</button>
-                    <button id="btn-phase-3" class="btn btn-phase critical-phase">FAZ 3: T + 0 (Çarpışma & Müdahale)</button>
-                    <button id="btn-phase-4" class="btn btn-phase recovery-phase">FAZ 4: T + 24 Saat (İyileştirme & ROV)</button>
+                    <button id="btn-phase-1" class="btn btn-phase">FAZ 1: UYDULAR GÜVENLİ MODA</button>
+                    <button id="btn-phase-2" class="btn btn-phase">FAZ 2: METROLAR TAHLİYE & KRİTİK HARİCİ KESİNTİ</button>
+                    <button id="btn-phase-3" class="btn btn-phase critical-phase">FAZ 3: ŞEBEKELER KORUMA MODU AKTİF</button>
+                    <button id="btn-phase-4" class="btn btn-phase recovery-phase">FAZ 4: SİSTEMİN YAVAŞÇA AKTİF EDİLMESİ</button>
                 </div>
 
-                <div class="telemetry-widgets">
-                    <h4 class="widget-header">L1 DSCOVR TELEMETRY</h4>
-                    <div class="widget status-widget main-status">
-                        <span class="widget-label">Sistem Durumu</span>
+                <div class="telemetry-widgets" id="telemetry-scroll-area">
+                    <div class="widget status-widget main-status" style="margin-bottom: 15px; border: 1px solid var(--accent-blue);">
+                        <span class="widget-label">SİSTEM DURUMU</span>
                         <span id="status-main" class="widget-value ok">STANDBY</span>
+                        <span class="status-led led-green"></span>
                     </div>
-                    <div class="widget">
-                        <span class="widget-label">Kp İndeksi</span>
-                        <span id="val-kp" class="widget-value">--</span>
+
+                    <div class="voice-control-panel" style="margin-bottom: 20px;">
+                        <button id="btn-mic-toggle" class="btn btn-mic">
+                            <span class="mic-icon">🎤</span> TELSİZ / SESLİ KOMUT (PTT)
+                        </button>
+                        <div id="mic-status-text" style="font-size: 0.7rem; color: #888; margin-top: 5px; font-family: 'Fira Code';">KOMUT BEKLENİYOR...</div>
                     </div>
-                    <div class="widget">
-                        <span class="widget-label">Güneş Rüzgarı</span>
-                        <span id="val-wind" class="widget-value">-- km/s</span>
+
+                    <!-- 1. UZAY HAVASI PANELİ -->
+                    <div class="telemetry-group">
+                        <h4 class="widget-header">1. UZAY HAVASI PANELİ (L1 Uydu Verileri)</h4>
+                        <div class="widget">
+                            <span class="widget-label">Güneş Rüzgarı Hızı</span>
+                            <div class="value-row">
+                                <span id="val-wind" class="widget-value ok">400 km/s</span>
+                                <span class="status-led led-green" id="led-wind"></span>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <span class="widget-label">Bz Manyetik Alan</span>
+                            <div class="value-row">
+                                <span id="val-bz" class="widget-value ok">+3.5 nT</span>
+                                <span class="status-led led-green" id="led-bz"></span>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <span class="widget-label">Kp İndeksi</span>
+                            <div class="value-row">
+                                <span id="val-kp" class="widget-value ok">2.0</span>
+                                <span class="status-led led-green" id="led-kp"></span>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <span class="widget-label">X-Ray Akısı</span>
+                            <div class="value-row">
+                                <span id="val-xray" class="widget-value ok">A2.3</span>
+                                <span class="status-led led-green" id="led-xray"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="widget">
-                        <span class="widget-label">Bz Manyetik Alan</span>
-                        <span id="val-bz" class="widget-value">-- nT</span>
+
+                    <!-- 2. SCADA & ŞEBEKE İZOLASYON PANELİ -->
+                    <div class="telemetry-group">
+                        <h4 class="widget-header">2. SCADA & ŞEBEKE İZOLASYON PANELİ (TEİAŞ)</h4>
+                        <div class="widget">
+                            <span class="widget-label">GIC (İndüklenen)</span>
+                            <div class="value-row">
+                                <span id="val-gic-amp" class="widget-value ok">0.5 A</span>
+                                <span class="status-led led-green" id="led-gic"></span>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <span class="widget-label">EHV Trafo Sıcaklığı</span>
+                            <div class="value-row">
+                                <span id="val-trafo" class="widget-value ok">55 °C</span>
+                                <span class="status-led led-green" id="led-trafo"></span>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <span class="widget-label">Şebeke Frekansı</span>
+                            <div class="value-row">
+                                <span id="val-freq" class="widget-value ok">50.00 Hz</span>
+                                <span class="status-led led-green" id="led-freq"></span>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <span class="widget-label">SST Koruma Durumu</span>
+                            <div class="value-row">
+                                <span id="val-sst" class="widget-value ok" style="font-size: 0.75rem;">BEKLEMEDE</span>
+                                <span class="status-led led-green" id="led-sst"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="widget">
-                        <span class="widget-label">GIC Akımı (İndüklenen)</span>
-                        <span id="val-gic" class="widget-value">-- A/km</span>
+
+                    <!-- 3. ULAŞIM & KRİTİK ALTYAPI PANELİ -->
+                    <div class="telemetry-group">
+                        <h4 class="widget-header">3. ULAŞIM & KRİTİK ALTYAPI PANELİ</h4>
+                        <div class="widget">
+                            <span class="widget-label">GNSS / PNT Durumu</span>
+                            <div class="value-row">
+                                <span id="val-gps" class="widget-value ok" style="font-size: 0.75rem;">KİLİTLİ (3D FIX)</span>
+                                <span class="status-led led-green" id="led-gps"></span>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <span class="widget-label">Ray Gerilim (YHT)</span>
+                            <div class="value-row">
+                                <span id="val-ray-volt" class="widget-value ok">0 V DC</span>
+                                <span class="status-led led-green" id="led-ray-volt"></span>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <span class="widget-label">Metro Tahliye</span>
+                            <div class="value-row">
+                                <span id="val-marmaray" class="widget-value ok" style="font-size: 0.75rem;">OPERASYONEL</span>
+                                <span class="status-led led-green" id="led-marmaray"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="widget status-widget">
-                        <span class="widget-label">Metro Ağları</span>
-                        <span id="status-metro" class="widget-value ok">AKTİF</span>
-                    </div>
-                    <div class="widget status-widget">
-                        <span class="widget-label">HF/GPS Ağları</span>
-                        <span id="status-comms" class="widget-value ok">AKTİF</span>
+
+                    <!-- 4. AĞ VE HABERLEŞME PANELİ -->
+                    <div class="telemetry-group">
+                        <h4 class="widget-header">4. AĞ VE HABERLEŞME PANELİ (Air-Gapped Modu)</h4>
+                        <div class="widget">
+                            <span class="widget-label">Ana Omurga (İnternet)</span>
+                            <div class="value-row">
+                                <span id="val-internet" class="widget-value ok">BAĞLI</span>
+                                <span class="status-led led-green" id="led-internet"></span>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <span class="widget-label">Otonom LLM Motoru</span>
+                            <div class="value-row">
+                                <span id="val-llm-mode" class="widget-value ok" style="font-size: 0.75rem;">İZLEME MODU (IDLE)</span>
+                                <span class="status-led led-green" id="led-llm-mode"></span>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <span class="widget-label">AREDN Karasal Ağı</span>
+                            <div class="value-row">
+                                <span id="val-aredn" class="widget-value warning" style="font-size: 0.75rem;">YEDEK BEKLEMEDE</span>
+                                <span class="status-led led-orange" id="led-aredn"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
